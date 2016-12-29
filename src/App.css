@@ -1,0 +1,82 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+.centered {
+  border: thick solid red;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.form-group label, .form-group input {
+  float:none;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.padding {
+  width:30%;
+  display: inline-block;
+}
+.form {
+  width: 800px;
+  position: fixed;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.cell-left {
+  position: relative;
+  text-align: left;
+  margin-bottom: 20;
+}
+
+.cell-right {
+  position: relative;
+  text-align: right;
+  margin-bottom: 20;
+}
+
+.slider {
+  float: left;
+  height:50px;
+  width:550px;
+}
+
+.row {
+  padding-bottom: 30px;
+}
+
+form > * {
+  padding-bottom: 50px;
+}
+
+.pdiv > * {
+  padding-bottom: 50px;
+}
+.ptop {
+  padding-top: 50px;
+}
+
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}

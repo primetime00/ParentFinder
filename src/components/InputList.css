@@ -1,0 +1,77 @@
+
+html {
+   font-size: 16px;
+}
+
+body {
+    font-size: 100%;
+    font-family: 'Roboto', arial, sans-serif;
+    background: #f9f9f9;
+}
+
+.app-container {
+   margin-top: 2rem;
+   margin-right: auto;
+   margin-left: auto;
+   overflow: hidden;
+   max-width: 420px;
+   background: #fff;
+   border-radius: 4px;
+   box-shadow: 0 1px 3px rgba(0,0,0,.025), 0 3px 6px rgba(0,0,0,.065);
+}
+
+.app-header {
+    position: relative;
+}
+
+h1 {
+    margin-bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+.input-group .form-control:not(:last-child) {
+    padding-top: .6rem;
+    padding-bottom: .6rem;
+    width: 70%;
+    border-bottom: 0;
+    border-left: 0;
+    border-color: #eee;
+}
+
+.input-group-addon {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    min-width: 80px;
+    width: 30%;
+    color: #fff;
+    background-color: #039be5;
+    border: 0;
+    border-radius: 0;
+}
+
+.input-list {
+    padding: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    overflow: hidden;
+    list-style-type: none;
+}
+
+.input-item {
+    padding-top: 0.75rem;
+    padding-right: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 0.75rem;
+    width: 100%;
+    background: #fff;
+    cursor: default;
+    border-top: 1px solid #eee;
+}
+
+.input-remover {
+    line-height: 1.45;
+    color: #ddd;
+    cursor: pointer;
+    transition: color .25s ease-in-out;
+}
