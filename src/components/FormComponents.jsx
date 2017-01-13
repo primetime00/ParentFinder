@@ -6,7 +6,6 @@ import '../../node_modules/rc-slider/assets/index.css'
 import {Row, Column} from 'react-cellblock';
 import {Button, Icon, Form, Input, Segment, Dropdown, Grid} from 'semantic-ui-react'
 import Slider from 'rc-slider';
-import {HobbyCreator} from './InputList';
 
 class NameComponent extends Component {
     constructor(props) {
@@ -261,12 +260,13 @@ class KidComponent extends Component {
         this.setupChildren()
     }
     handleChange(value) {
-        let newKids = this.setupChildren(value);
+        let newKids = this.setupChildren();
         this.setState({number:value, kids:newKids});
     }
 
     setupChildren(){
         let kidlen = this.state.kids.length;
+
         if (kidlen === 0) { //we need to initialize the kids
             let newKids = [];
             for (let i=0; i<this.state.number+1; i++) {
@@ -291,14 +291,15 @@ class KidComponent extends Component {
                 <div>
                     <Segment>
                         <Form.Field control={YearMonthComponent} number={(i + 1)}
+                                    class="kidAge" className="kidAgeField"
                                     label={"Child " + (i + 1) + ": Birth month and year"}/>
                     </Segment>
                 </div>
             );
         }
         return (
-            <div>
-            <Slider value={this.state.number} step={null} marks={this.marks} min={0} max={9} onChange={this.handleChange}/>
+            <div className="kids">
+            <Slider className="kidsSlider" value={this.state.number} step={null} marks={this.marks} min={0} max={9} onChange={this.handleChange}/>
                 <div className="ptop">
                     <Segment.Group style={this.segmentStyle}>
                         { fields }
@@ -384,7 +385,7 @@ class HobbiesComponent extends Component {
         this.handleRemove = this.handleRemove.bind(this);
         this.hobbyLimit = 10;
         this.state = {
-            data: ["yo", "hello", "something really long", "next"],
+            data: [],
             input: "",
             canAdd: false,
         }
@@ -445,15 +446,16 @@ class HobbiesComponent extends Component {
         let entriesHtml = [];
         if (this.state.data.length > 0) {
             for (let i = 0; i < this.state.data.length; i++) {
-                var name="remove_"+i
+                var name="remove_"+i;
+                var hobby_name="hobby_"+i;
                 entriesHtml.push(
                     <Segment style={this.segmentStyle}>
                         <Grid>
                             <Grid.Column floated="left" width={13}>
-                                <b>{this.state.data[i]}</b>
+                                <b className="hobbyItem">{this.state.data[i]}</b>
                             </Grid.Column>
                             <Grid.Column floated="right" width={3}>
-                                <Icon link id={name} onClick={this.handleRemove} name="remove"/>
+                                <Icon link id={name} className="hobbyDelete" onClick={this.handleRemove} name="remove"/>
                             </Grid.Column>
                         </Grid>
                     </Segment>
@@ -462,13 +464,13 @@ class HobbiesComponent extends Component {
         }
 
         return (
-        <div>
-            <Form.Field control={Input} onKeyPress={this.handleKeyPress} onChange={this.handleInput} action={{content:"Add Hobby", onClick:this.handleAdd, disabled:!this.state.canAdd}} value={this.state.input} placeholder="Hobby"/>
+        <div className="hobby">
+            <Form.Field control={Input} onKeyPress={this.handleKeyPress} onChange={this.handleInput} action={{className:"hobbyLabel", content:"Add Hobby", onClick:this.handleAdd, disabled:!this.state.canAdd}} value={this.state.input} placeholder="Hobby"/>
             { entriesHtml.length >= this.hobbyLimit &&
-            <p style={this.limitStyle}>That's a lot of hobbies!  Lets leave it at that for now.</p>
+            <p className="hobbyLimit" style={this.limitStyle}>That's a lot of hobbies!  Lets leave it at that for now.</p>
             }
             { entriesHtml.length > 0 &&
-                <Segment.Group style={this.segmentGroupStyle} raised>
+                <Segment.Group className="hobbyList" style={this.segmentGroupStyle} raised>
                 {entriesHtml}
                 </Segment.Group>
             }
@@ -479,4 +481,4 @@ class HobbiesComponent extends Component {
 
 
 
-module.exports = {NameComponent, AgeComponent, GenderComponent, TestComponent};
+module.exports = {NameComponent, AgeComponent, GenderComponent, HobbiesComponent, KidComponent, TestComponent};

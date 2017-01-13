@@ -1,5 +1,5 @@
 import React, { Component, View, Text } from 'react';
-import {TestComponent} from './components/FormComponents';
+import {KidComponent} from './components/FormComponents';
 import {Grid} from 'react-cellblock';
 import logo from './logo.svg';
 import './App.css';
@@ -17,7 +17,7 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
                 <div>
-                        <TestComponent/>
+                    {                      <KidComponent/>  }
                 </div>
             </div>
         );
