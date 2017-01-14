@@ -1,6 +1,6 @@
 import React, { Component, View, Text } from 'react';
-import {KidComponent} from './components/FormComponents';
-import {Grid} from 'react-cellblock';
+import {KidComponent, NameComponent, GenderComponent, AgeComponent, HobbiesComponent} from './components/FormComponents';
+import {Button, Icon, Form, Input, Segment, Dropdown, Grid} from 'semantic-ui-react'
 import logo from './logo.svg';
 import './App.css';
 
@@ -17,7 +17,15 @@ class App extends Component {
                     To get started, edit <code>src/App.js</code> and save to reload.
                 </p>
                 <div>
-                    {                      <KidComponent/>  }
+                    <Form>
+                        <Form.Group widths="equal">
+                            <Form.Field control={NameComponent} label="First Name" placeholder="First Name"/>
+                            <Form.Field control={GenderComponent} label="Gender"/>
+                        </Form.Group>
+                        <Form.Field control={AgeComponent} label="Age"/>
+                        <Form.Field control={KidComponent} label="How many children do you have?"/>
+                        <Form.Field control={HobbiesComponent} label="List a few of your hobbies."/>
+                    </Form>
                 </div>
             </div>
         );

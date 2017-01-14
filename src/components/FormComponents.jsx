@@ -21,15 +21,12 @@ class NameComponent extends Component {
 
     render() {
         return (
-        <Row className="row">
-            <Column width="1/2" className="cell-left"><label>Please enter your first name</label></Column>
-            <Column width="1/2" className="cell-right"><input value={this.state.name} onChange={this.handleChange}/></Column>
-        </Row>
+            <Input placeholder={this.props.placeholder}/>
         );
     }
 }
 
-class AgeComponent extends Component {
+class AgeComponentOld extends Component {
     constructor(props) {
         super(props);
         this.style = {height: 100};
@@ -71,7 +68,7 @@ class AgeComponent extends Component {
     }
 }
 
-class AgeComponent2 extends Component {
+class AgeComponent extends Component {
     constructor(props) {
         super(props);
         this.style = {height: 100};
@@ -352,7 +349,7 @@ class TestComponent extends Component {
                         </Form.Group>
                         <Form.Field>
                             <label>Age</label>
-                            <AgeComponent2/>
+                            <AgeComponent/>
                         </Form.Field>
                         <Form.Field>
                             <label>How many children do you have?</label>
@@ -410,13 +407,12 @@ class HobbiesComponent extends Component {
     handleKeyPress(event) {
         if (!this.state.canAdd)
             return;
-        if (event.key == 'Enter') {//return was pressed
+        if (event.key === 'Enter') {//return was pressed
             this.handleAdd();
         }
     }
     handleInput(e) {
-        this.state.canAdd = (this.state.data.length < this.hobbyLimit && e.target.value.length > 0);
-        this.setState({input: e.target.value});
+        this.setState({input: e.target.value, canAdd: (this.state.data.length < this.hobbyLimit && e.target.value.length > 0)});
     }
     handleAdd() {
         if (this.state.input.length <= 0)
@@ -434,7 +430,7 @@ class HobbiesComponent extends Component {
         const name = e.target.id;
         if (name === undefined || !name.startsWith("remove_"))
             return;
-        var value = parseInt(name.substr(7));
+        var value = parseInt(name.substr(7), 10);
         if (isNaN(value))
             return;
         let entries=this.state.data;
